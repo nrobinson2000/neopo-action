@@ -13,7 +13,7 @@ jobs:
           ~/.particle
         key: ${{ runner.os }}-${{ hashFiles('**/manifest.json') }}
     - id: foo
-      uses: nrobinson2000/neopo-action@v1
+      uses: nrobinson2000/neopo-action@v1.2
       with:
         project-path: 'test'
     - run: echo random-number ${{ steps.foo.outputs.random-number }} 
