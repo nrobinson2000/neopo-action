@@ -16,5 +16,3 @@ jobs:
       uses: nrobinson2000/neopo-action@v1.2
       with:
         project-path: 'test'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
-      shell: bash
