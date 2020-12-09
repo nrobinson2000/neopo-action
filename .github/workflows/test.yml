@@ -12,7 +12,6 @@ jobs:
           ~/.neopo
           ~/.particle
         key: ${{ runner.os }}-neopo-${{ hashFiles('**/project.properties') }}
-    - id: foo
-      uses: nrobinson2000/neopo-action@v1.2
+    - uses: nrobinson2000/neopo-action@v1.2
       with:
         project-path: 'test'
