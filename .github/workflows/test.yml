@@ -11,7 +11,7 @@ jobs:
         path: |
           ~/.neopo
           ~/.particle
-        key: ${{ runner.os }}-${{ hashFiles('~/.neopo/cache/manifest.json') }}
+        key: ${{ runner.os }}-neopo-${{ hashFiles('../.neopo/cache/manifest.json') }}
     - id: foo
       uses: nrobinson2000/neopo-action@v1.2
       with:
