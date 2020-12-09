@@ -3,12 +3,18 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Build test project with Neopo
     steps:
     - uses: actions/checkout@v2
-    - id: foo
-      uses: nrobinson2000/neopo-action@v1.1
+    - uses: actions/cache@v2
       with:
-        who-to-greet: 'Nathan Robinson'
+        path: |
+          ~/.neopo
+          ~/.particle
+        key: ${{ runner.os }}-${{ hashFiles('**/manifest.json') }}
+    - id: foo
+      uses: nrobinson2000/neopo-action@v1
+      with:
+        project-path: 'test'
     - run: echo random-number ${{ steps.foo.outputs.random-number }} 
       shell: bash

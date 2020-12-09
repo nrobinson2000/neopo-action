@@ -1,10 +1,10 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Neopo Build'
+description: 'Build the project with neopo'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  project-path:
+    description: 'Path of project to build'
     required: true
-    default: 'World'
+    default: '.'
 outputs:
   random-number: 
     description: "Random number"
@@ -12,10 +12,7 @@ outputs:
 runs:
   using: "composite"
   steps: 
-    - run: echo Hello ${{ inputs.who-to-greet }}.
+    - run: git clone "https://github.com/nrobinson2000/neopo" && neopo/install.sh
       shell: bash
-    - id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+    - run: neopo build "${{ inputs.project-path }}"
       shell: bash
-#    - run: ${{ github.action_path }}/goodbye.sh
-#      shell: bash
