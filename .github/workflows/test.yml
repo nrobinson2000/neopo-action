@@ -9,9 +9,8 @@ jobs:
     - uses: actions/cache@v2
       with:
         path: |
-          ~/.neopo
-          ~/.particle
-        key: ${{ runner.os }}-neopo-${{ hashFiles('**/project.properties') }}
+          ~/.local/share/neopo
+        key: ${{ runner.os }}-neopo-${{ hashFiles('**/settings.json') }}
     - uses: nrobinson2000/neopo-action@v1.2
       with:
         project-path: 'test'

@@ -12,7 +12,9 @@ outputs:
 runs:
   using: "composite"
   steps: 
-    - run: git clone "https://github.com/nrobinson2000/neopo" && neopo/install.sh
+    - run: git clone "https://github.com/nrobinson2000/neopo"
       shell: bash
-    - run: neopo build "${{ inputs.project-path }}"
+    - run: NEOPO_LOCAL=1 neopo/install.sh
+      shell: bash
+    - run: NEOPO_LOCAL=1 neopo build "${{ inputs.project-path }}"
       shell: bash
