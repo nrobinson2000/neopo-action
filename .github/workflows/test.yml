@@ -11,6 +11,6 @@ jobs:
         path: |
           ~/.local/share/neopo
         key: ${{ runner.os }}-neopo-${{ hashFiles('**/settings.json') }}
-    - uses: nrobinson2000/neopo-action@v1.2
+    - uses: nrobinson2000/neopo-action@v1.3
       with:
         project-path: 'test'
